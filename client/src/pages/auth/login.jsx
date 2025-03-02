@@ -22,14 +22,10 @@ function AuthLogin() {
 
     dispatch(loginUser(formData)).then((data) => {
       if (data?.payload?.success) {
-        console.log(data);
-        toast.success("Login successful");
-        navigate("/shop/home");
+        toast.success(data?.payload?.message);
+        navigate("/auth/login");
       } else {
-        toast({
-          title: data?.payload?.message,
-          variant: "destructive",
-        });
+        toast.error(data?.payload?.message);
       }
     });
   }

@@ -30,7 +30,7 @@ function App() {
 
   return (
     <div className="flex flex-col overflow-hidden bg-white">
-      <Toaster richColors position="top-right" />
+      <Toaster richColors position="top-center" />
       <Routes>
         <Route
           path="/auth"
