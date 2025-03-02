@@ -18,6 +18,7 @@ import { useEffect } from "react";
 import { checkAuth } from "./store/auth-slice";
 import UnAuthPage from "./pages/uanauth-page";
 import AdminOrder from "./pages/admin/orders";
+import { Toaster } from "sonner";
 
 function App() {
   const { user, isAuthenticated } = useSelector((state) => state.auth);
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <div className="flex flex-col overflow-hidden bg-white">
+      <Toaster richColors position="top-right" />
       <Routes>
         <Route
           path="/auth"

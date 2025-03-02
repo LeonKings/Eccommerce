@@ -8,7 +8,7 @@ const registerUser = async (req, res) => {
 
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$/;
   if (!passwordRegex.test(password)) {
-    return res.status(400).json({
+    return res.json({
       success: false,
       message:
         "Password must be at least 5 characters long and contain both letters and numbers!",

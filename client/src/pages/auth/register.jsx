@@ -24,6 +24,7 @@ function AuthRegister() {
         toast.success(data?.payload?.message);
         navigate("/auth/login");
       } else {
+        toast.error(data?.payload?.message);
       }
     });
   }
