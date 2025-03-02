@@ -7,6 +7,9 @@ const registerUser = async (req, res) => {
   const { userName, email, password } = req.body;
 
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$/;
+
+  // // Password validation: At least 5 characters, 1 letter, 1 number, 1 symbol
+  // const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,}$/;
   if (!passwordRegex.test(password)) {
     return res.json({
       success: false,
