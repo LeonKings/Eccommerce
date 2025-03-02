@@ -9,6 +9,7 @@ const initialState = {
 
 export const registerUser = createAsyncThunk(
   "/auth/register",
+
   async (formData) => {
     const response = await axios.post(
       "http://localhost:3000/api/auth/register",
@@ -17,20 +18,26 @@ export const registerUser = createAsyncThunk(
         withCredentials: true,
       }
     );
+
     return response.data;
   }
 );
 
-export const loginUser = createAsyncThunk("/auth/login", async (formData) => {
-  const response = await axios.post(
-    "http://localhost:3000/api/auth/login",
-    formData,
-    {
-      withCredentials: true,
-    }
-  );
-  return response.data;
-});
+export const loginUser = createAsyncThunk(
+  "/auth/login",
+
+  async (formData) => {
+    const response = await axios.post(
+      "http://localhost:3000/api/auth/login",
+      formData,
+      {
+        withCredentials: true,
+      }
+    );
+
+    return response.data;
+  }
+);
 
 export const logoutUser = createAsyncThunk(
   "/auth/logout",
@@ -43,23 +50,29 @@ export const logoutUser = createAsyncThunk(
         withCredentials: true,
       }
     );
+
     return response.data;
   }
 );
 
-export const checkAuth = createAsyncThunk("/auth/checkauth", async () => {
-  const response = await axios.get(
-    "http://localhost:3000/api/auth/check-auth",
-    {
-      withCredentials: true,
-      headers: {
-        "Cache-Control":
-          "no-store, no-cache, must-revalidate, proxy-revalidate",
-      },
-    }
-  );
-  return response.data;
-});
+export const checkAuth = createAsyncThunk(
+  "/auth/checkauth",
+
+  async () => {
+    const response = await axios.get(
+      "http://localhost:3000/api/auth/check-auth",
+      {
+        withCredentials: true,
+        headers: {
+          "Cache-Control":
+            "no-store, no-cache, must-revalidate, proxy-revalidate",
+        },
+      }
+    );
+
+    return response.data;
+  }
+);
 
 const authSlice = createSlice({
   name: "auth",

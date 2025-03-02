@@ -21,12 +21,16 @@ import AdminOrder from "./pages/admin/orders";
 import { Toaster } from "sonner";
 
 function App() {
-  const { user, isAuthenticated } = useSelector((state) => state.auth);
+  const { user, isAuthenticated, isLoading } = useSelector(
+    (state) => state.auth
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(checkAuth());
   }, [dispatch]);
+
+  if (isLoading) return;
 
   return (
     <div className="flex flex-col overflow-hidden bg-white">
