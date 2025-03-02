@@ -6,6 +6,15 @@ const User = require("../../models/User");
 const registerUser = async (req, res) => {
   const { userName, email, password } = req.body;
 
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,}$/;
+  if (!passwordRegex.test(password)) {
+    return res.status(400).json({
+      success: false,
+      message:
+        "Password must be at least 5 characters long and contain both letters and numbers!",
+    });
+  }
+
   try {
     const checkUser = await User.findOne({ email });
     if (checkUser)
