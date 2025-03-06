@@ -19,6 +19,7 @@ import { checkAuth } from "./store/auth-slice";
 import UnAuthPage from "./pages/uanauth-page";
 import AdminOrder from "./pages/admin/orders";
 import { Toaster } from "sonner";
+import { Skeleton } from "./components/ui/skeleton";
 
 function App() {
   const { user, isAuthenticated, isLoading } = useSelector(
@@ -31,6 +32,7 @@ function App() {
   }, [dispatch]);
 
   if (isLoading) return <Skeleton className="w-[800] bg-black h-[600px]" />;
+  console.log(isAuthenticated, user, isLoading);
 
   return (
     <div className="flex flex-col overflow-hidden bg-white">
